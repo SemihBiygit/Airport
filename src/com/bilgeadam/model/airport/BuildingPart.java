@@ -5,12 +5,14 @@ public class BuildingPart {
 	private String material;
 	private int length;
 	private int width;
+	private Part type;
 
-	public BuildingPart(String name, String material, int length, int width) {
+	public BuildingPart(String name, String material, int length, int width, Part type) {
 		this.name = name;
 		this.material = material;
 		this.length = length;
 		this.width = width;
+		this.type = type;
 	}
 
 	public String getMaterial() {
@@ -31,7 +33,7 @@ public class BuildingPart {
 
 	@Override
 	public String toString() {
-		return "BuildingPart [name=" + this.name + ", material=" + this.material + ", length=" + this.length
+		return this.type + ": [name=" + this.name + ", material=" + this.material + ", length=" + this.length
 				+ ", width=" + this.width + "]";
 	}
 

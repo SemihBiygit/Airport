@@ -1,52 +1,31 @@
 package com.bilgeadam.model.airport;
 
+import java.util.Arrays;
+
 public class Airport {
 	private String name;
 	private String city;
-	private BuildingPart runway;
-	private BuildingPart taxiway1;
-	private BuildingPart taxiway2;
-	private BuildingPart apron;
+	private BuildingPart[] parts;
 
 	public Airport(String name, String city) {
 		this.name = name;
 		this.city = city;
-		this.runway= new BuildingPart("Pist", "Asfalt", 2000, 50);
-		this.taxiway1= new BuildingPart("Taksi 1", "Beton", 200, 25);
-		this.taxiway2= new BuildingPart("Taksi 2", "Beton", 100, 25);
-		this.apron= new BuildingPart("Apron", "Beton", 200, 300);
+
+		this.parts = new BuildingPart[5];
+		this.buildAirpott();
 	}
 
-	public BuildingPart getRunway() {
-		return this.runway;
+	private void buildAirpott() {
+
+		this.parts[0] = new BuildingPart("Pist", "Asfalt", 2000, 50, Part.RUNWAY);
+		this.parts[1] = new BuildingPart("Taksi 1", "Beton", 200, 25, Part.TAXI);
+		this.parts[2] = new BuildingPart("Taksi 2", "Beton", 100, 25, Part.TAXI);
+		this.parts[3] = new BuildingPart("Taksi 3", "Beton", 150, 25, Part.TAXI);
+		this.parts[4] = new BuildingPart("Apron", "Beton", 200, 300, Part.APRON);
 	}
 
-	public void setRunway(BuildingPart runway) {
-		this.runway = runway;
-	}
-
-	public BuildingPart getTaxiway1() {
-		return this.taxiway1;
-	}
-
-	public void setTaxiway1(BuildingPart taxiway1) {
-		this.taxiway1 = taxiway1;
-	}
-
-	public BuildingPart getTaxiway2() {
-		return this.taxiway2;
-	}
-
-	public void setTaxiway2(BuildingPart taxiway2) {
-		this.taxiway2 = taxiway2;
-	}
-
-	public BuildingPart getApron() {
-		return this.apron;
-	}
-
-	public void setApron(BuildingPart apron) {
-		this.apron = apron;
+	public BuildingPart[] getParts() {
+		return this.parts;
 	}
 
 	public String getName() {
@@ -59,8 +38,7 @@ public class Airport {
 
 	@Override
 	public String toString() {
-		return "Airport [name=" + this.name + ", city=" + this.city + ", runway=" + this.runway + ", taxiway1="
-				+ this.taxiway1 + ", taxiway2=" + this.taxiway2 + ", apron=" + this.apron + "]";
+		return "Airport [name=" + this.name + ", city=" + this.city + ", parts=" + Arrays.toString(this.parts) + "]";
 	}
 
 }

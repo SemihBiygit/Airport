@@ -1,6 +1,6 @@
 package com.bilgeadam.model.vehicle;
 
-public class Vehicle {
+public abstract class Vehicle {
 	private String brand;
 	private String name;
 	private String color;
